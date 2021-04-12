@@ -38,10 +38,10 @@
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.309"
+        app:layout_constraintHorizontal_bias="0.396"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.667" />
+        app:layout_constraintVertical_bias="0.673" />
 
     <Button
         android:id="@+id/button2"
@@ -73,7 +73,6 @@
         android:layout_height="74dp"
         android:layout_marginStart="92dp"
         android:layout_marginTop="20dp"
-        android:flow_horizontalAlign="center"
         android:fontFamily="@font/roboto_bold"
         android:text="T A S K\nM A S T E R"
         android:textAlignment="center"
@@ -88,9 +87,11 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="196dp"
         android:text="Don't have an account? Sign Up"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="112dp"
-        tools:layout_editor_absoluteY="622dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
