@@ -86,25 +86,35 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-    /*public void signIn(View v) {
+    //https://firebase.google.com/docs/auth/android/password-auth?authuser=0
+    public void signIn(View v) {
         EditText emailEditText = (EditText) findViewById(R.id.textEmailAddress);
         EditText passEditText = (EditText) findViewById(R.id.textPassword);
-
 
         String email = emailEditText.getText().toString();
         String password = passEditText.getText().toString();
         Log.e("KIM", "Typing " + email + " and " + password);
 
-        //Successful -> .then code
-        //Unsuccessful -> catch code (catch error message)
-        auth.signInWithEmailAndPassword(email, password).then(() => {
-                console.log("Signed in " + email);
-
-
-        }).catch(e => Log.e(e.message));
-    }*/
+        auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success");
+                            FirebaseUser user = auth.getCurrentUser();
+                            //updateUI(user);
+                        }
+                        else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            //Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
+                                    //Toast.LENGTH_SHORT).show();
+                            //updateUI(null);
+                        }
+                    }
+                });
+    }
 
     /**
      * This method will be called to minimize the on screen keyboard in the Activity
