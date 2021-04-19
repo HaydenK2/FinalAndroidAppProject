@@ -15,7 +15,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
-import android.support.v7.app.AlertDialog;
 
 import androidx.annotation.NonNull;
 
@@ -135,14 +134,15 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Source: https://suragch.medium.com/making-an-alertdialog-in-android-2045381e2edb
+     * public void showAlertDialogue(View view, String str){
+     *         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+     *         builder.setMessage(str);
+     *         builder.setPositiveButton("OK", null);
+     *         AlertDialog dialog = builder.create();
+     *         dialog.show();
+     *     }
      */
-    public void showAlertDialogue(View view, String str){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(str);
-        builder.setPositiveButton("OK", null);
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
+
 }
 
 
