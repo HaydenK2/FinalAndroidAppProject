@@ -15,6 +15,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+import android.support.v7.app.AlertDialog;
 
 import androidx.annotation.NonNull;
 
@@ -23,6 +24,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
@@ -77,8 +79,8 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            //Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
-                                    //Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
 
                         }
                     }
@@ -86,25 +88,35 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-    /*public void signIn(View v) {
+    //https://firebase.google.com/docs/auth/android/password-auth?authuser=0
+    public void signIn(View v) {
         EditText emailEditText = (EditText) findViewById(R.id.textEmailAddress);
         EditText passEditText = (EditText) findViewById(R.id.textPassword);
-
 
         String email = emailEditText.getText().toString();
         String password = passEditText.getText().toString();
         Log.e("KIM", "Typing " + email + " and " + password);
 
-        //Successful -> .then code
-        //Unsuccessful -> catch code (catch error message)
-        auth.signInWithEmailAndPassword(email, password).then(() => {
-                console.log("Signed in " + email);
-
-
-        }).catch(e => Log.e(e.message));
-    }*/
+        auth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success");
+                            FirebaseUser user = auth.getCurrentUser();
+                            //updateUI(user);
+                        }
+                        else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            Toast.makeText(MainActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            //updateUI(null);
+                        }
+                    }
+                });
+    }
 
     /**
      * This method will be called to minimize the on screen keyboard in the Activity
@@ -119,6 +131,17 @@ public class MainActivity extends AppCompatActivity {
             InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
+    }
+
+    /**
+     * Source: https://suragch.medium.com/making-an-alertdialog-in-android-2045381e2edb
+     */
+    public void showAlertDialogue(View view, String str){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(str);
+        builder.setPositiveButton("OK", null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
 
