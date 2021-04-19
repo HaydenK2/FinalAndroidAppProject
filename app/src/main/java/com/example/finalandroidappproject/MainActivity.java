@@ -15,6 +15,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+import android.support.v7.app.AlertDialog;
 
 import androidx.annotation.NonNull;
 
@@ -23,6 +24,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
@@ -129,6 +131,17 @@ public class MainActivity extends AppCompatActivity {
             InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
+    }
+
+    /**
+     * Source: https://suragch.medium.com/making-an-alertdialog-in-android-2045381e2edb
+     */
+    public void showAlertDialogue(View view, String str){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(str);
+        builder.setPositiveButton("OK", null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }
 
