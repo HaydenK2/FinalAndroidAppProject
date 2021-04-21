@@ -17,7 +17,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
-import android.support.v7.app.AlertDialog;
+//import android.support.v7.app.AlertDialog;
 
 import androidx.annotation.NonNull;
 
