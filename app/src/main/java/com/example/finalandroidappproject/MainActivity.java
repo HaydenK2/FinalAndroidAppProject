@@ -48,54 +48,18 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
     }
 
-
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = auth.getCurrentUser();
-        if(currentUser != null){
-            currentUser.reload();
-        }
+    //This function sends user to signUp activity
+    //https://learntodroid.com/how-to-switch-between-activities-in-android/
+    public void toSignUp(View v){
+        Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+        startActivity(intent);
     }
 
-    //https://firebase.google.com/docs/auth/android/password-auth?authuser=0
-    public void signUp(View v) {
-
-        EditText emailEditText = (EditText) findViewById(R.id.textEmailAddress);
-        EditText passEditText = (EditText) findViewById(R.id.textPassword);
-
-        String email = emailEditText.getText().toString();
-        String password = passEditText.getText().toString();
-
-        Log.e("KIM", "Typing " + email + " and " + password);
-
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = auth.getCurrentUser();
-                            //This code should switch activities
-                            Intent intent = new Intent(MainActivity.this, TaskActivity.class);
-                            startActivity(intent);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-                });
-
-    }
 
     //https://firebase.google.com/docs/auth/android/password-auth?authuser=0
     public void signIn(View v) {
-        EditText emailEditText = (EditText) findViewById(R.id.textEmailAddress);
-        EditText passEditText = (EditText) findViewById(R.id.textPassword);
+        EditText emailEditText = (EditText) findViewById(R.id.editTextTextEmailAddress);
+        EditText passEditText = (EditText) findViewById(R.id.editTextTextPassword);
 
         String email = emailEditText.getText().toString();
         String password = passEditText.getText().toString();
