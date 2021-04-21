@@ -3,6 +3,7 @@ package com.example.finalandroidappproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -50,6 +51,12 @@ public class AddTasksActivity extends AppCompatActivity {
                         Log.i(TAG, "Failure");
                     }
                 });
+    }
+
+    //https://learntodroid.com/how-to-switch-between-activities-in-android/
+    //goes back to previous activity
+    public void goBack(View v){
+        finish();
     }
 
 }
