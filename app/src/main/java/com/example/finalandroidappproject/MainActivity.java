@@ -3,7 +3,9 @@ package com.example.finalandroidappproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -106,6 +108,8 @@ public class MainActivity extends AppCompatActivity {
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = auth.getCurrentUser();
                             //updateUI(user);
+                            Intent intent = new Intent(MainActivity.this, TaskActivity.class);
+                            startActivity(intent);
                         }
                         else {
                             // If sign in fails, display a message to the user.
