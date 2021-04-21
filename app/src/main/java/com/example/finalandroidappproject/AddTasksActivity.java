@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -31,7 +32,7 @@ public class AddTasksActivity extends AppCompatActivity {
     }
 
     public void addTask (View v) {
-        EditText taskNameEditText = (EditText) findViewById(R.id.taskNameText);
+        EditText taskNameEditText = (EditText) findViewById(R.id.editTextTaskNameText);
 
         String taskName = taskNameEditText.getText().toString();
 
