@@ -55,37 +55,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //https://firebase.google.com/docs/auth/android/password-auth?authuser=0
-    public void signUp(View v) {
-
-        EditText emailEditText = (EditText) findViewById(R.id.textEmailAddress);
-        EditText passEditText = (EditText) findViewById(R.id.textPassword);
-
-        String email = emailEditText.getText().toString();
-        String password = passEditText.getText().toString();
-
-        Log.e("KIM", "Typing " + email + " and " + password);
-
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = auth.getCurrentUser();
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-                });
-
-    }
 
     //https://firebase.google.com/docs/auth/android/password-auth?authuser=0
     public void signIn(View v) {

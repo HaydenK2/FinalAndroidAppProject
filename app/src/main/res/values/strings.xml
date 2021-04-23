@@ -2,6 +2,8 @@
     <string name="app_name">FInal Android App Project</string>
     <string name="email_address">Email Address</string>
     <string name="password">Password</string>
-    <string name="title">TASK MASTER</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="username">Username</string>
+    <string name="dont_have_account">No account? <u>Sign Up!</u></string>
 
 </resources>
