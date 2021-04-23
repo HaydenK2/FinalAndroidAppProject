@@ -29,6 +29,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 //Referenced this to find the auth
 // https://www.androidhive.info/2016/06/android-getting-started-firebase-simple-login-registration-auth/
