@@ -48,22 +48,7 @@ public class AddTasksActivity extends AppCompatActivity {
 
         task.put(NAME_TASK, taskName);
         Log.i(TAG, task.toString());
-        /*db.collection("TaskList")
-                .add(task)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        //toastMessage("Event stored successfully");
-                        Log.i(TAG, "Success");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        //toastMessage("Event failed to add");
-                        Log.i(TAG, "Failure");
-                    }
-                });*/
+        db.collection("TaskList").document("JSR").set(task).addOnCompleteListener< new OnCompleteListener<Void>()>
     }
 
     //https://learntodroid.com/how-to-switch-between-activities-in-android/
