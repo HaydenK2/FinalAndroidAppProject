@@ -76,16 +76,15 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = auth.getCurrentUser();
-                            //updateUI(user);
+                            toastMessage("Authentication Success");
                             Intent intent = new Intent(MainActivity.this, TaskActivity.class);
                             startActivity(intent);
                         }
                         else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
+                            toastMessage("Authentication Failed");
+
                         }
                     }
                 });
@@ -115,6 +114,13 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("OK", null);
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    /**This functions just makes writing toast messages easier
+     *
+     */
+    private void toastMessage(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }
 

@@ -37,24 +37,48 @@ public class AddTasksActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_tasks);
+
+        db = FirebaseFirestore.getInstance();
     }
 
+    /** This function adds a task to the list of task on the TaskActivity Page
+    /   reference:https://www.youtube.com/watch?v=y2op1D0W8oE
+     */
     public void addTask (View v) {
         EditText taskNameEditText = (EditText) findViewById(R.id.editTextTaskNameText);
 
         String taskName = taskNameEditText.getText().toString();
+        Map<String, Object> taskToAdd = new HashMap<String, Object>();
+        taskToAdd.put(NAME_TASK, taskName);
+        Log.i(TAG, taskToAdd.toString());
 
-        Map<String, Object> task = new HashMap<String, Object>();
-
-        task.put(NAME_TASK, taskName);
-        Log.i(TAG, task.toString());
-        db.collection("TaskList").document("JSR").set(task).addOnCompleteListener< new OnCompleteListener<Void>()>
+        db.collection("TaskList").document("TaskObject").set(taskToAdd).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Log.i(TAG, "Success");
+                    toastMessage("Task Addition Success");
+                    finish();
+                }
+                else{
+                    Log.i(TAG, "Failure");
+                    toastMessage("Task Addition Failed");
+                }
+            }
+        });
     }
 
     //https://learntodroid.com/how-to-switch-between-activities-in-android/
     //goes back to previous activity
     public void goBack(View v){
         finish();
+    }
+
+    /**This functions just makes writing toast messages easier
+     *
+     */
+    private void toastMessage(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
 }
