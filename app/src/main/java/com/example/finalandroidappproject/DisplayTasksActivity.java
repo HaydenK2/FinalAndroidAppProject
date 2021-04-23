@@ -6,18 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class TaskActivity extends AppCompatActivity {
+public class DisplayTasksActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task);
+        setContentView(R.layout.activity_display_tasks);
     }
 
+    /**This function sends the user to the acitivty where you can add tasks
+     *
+     * @param V
+     */
     public void addTask(View V){
-        Intent intent = new Intent(TaskActivity.this, AddTasksActivity.class);
+        Intent intent = new Intent(DisplayTasksActivity.this, AddTasksActivity.class);
         startActivity(intent);
     }
-
-
 }
