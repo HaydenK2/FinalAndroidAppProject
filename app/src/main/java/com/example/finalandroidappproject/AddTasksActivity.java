@@ -54,7 +54,7 @@ public class AddTasksActivity extends AppCompatActivity {
         db.collection("TaskList").add(taskToAdd).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
-                    toastMessage("Event stored successfully");
+                    toastMessage("Task stored successfully");
                     Log.i(TAG, "Success");
                     showData();
                 }
@@ -62,40 +62,44 @@ public class AddTasksActivity extends AppCompatActivity {
             .addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    toastMessage("Event failed to add");
+                    toastMessage("Task failed to add");
                     Log.i(TAG, "Failure");
                 }
             });
     }
 
+
+    /**This function puts the data from the firestore and places it on the DisplayTasksActivity.
+     *
+     */
     public void showData() {
         ArrayList<TaskParcelable> myTasks = new ArrayList<TaskParcelable>();
         db.collection("TaskList").orderBy(NAME_TASK).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document: task.getResult()) {
-                                Log.i(TAG, document.getId() + " =>" + document.getData());
-                                TaskParcelable t = new TaskParcelable(document.getString(NAME_TASK), document.getId());
-                                myTasks.add(t);
-                                toastMessage("Task Object added");
-                            }
-                        }
-                        else {
-                            Log.i(TAG, "Error getting documents", task.getException());
-                        }
-
-                        // Start new activity and send it the ArrayList of Event objects
-                        //This part sends the array list we just made to the DisplayEventsActivity
-                        //myTasks.add(t);
-                        Intent intent = new Intent(AddTasksActivity.this, DisplayTasksActivity.class);
-                        intent.putExtra("tasks", myTasks);
-                        startActivity(intent);
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document: task.getResult()) {
+                        Log.i(TAG, document.getId() + " =>" + document.getData());
+                        TaskParcelable t = new TaskParcelable(document.getString(NAME_TASK), document.getId());
+                        myTasks.add(t);
                     }
-                });
+                }
+                else {
+                    Log.i(TAG, "Error getting documents", task.getException());
+                }
+
+                // Start new activity and send it the ArrayList of Event objects
+                //This part sends the array list we just made to the DisplayEventsActivity
+                //myTasks.add(t);
+                Intent intent = new Intent(AddTasksActivity.this, DisplayTasksActivity.class);
+                intent.putExtra("tasks", myTasks);
+                startActivity(intent);
+            }
+        });
 
 
     }
+
 
     //https://learntodroid.com/how-to-switch-between-activities-in-android/
     //goes back to previous activity

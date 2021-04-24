@@ -28,7 +28,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Get Firebase Instance
         auth = FirebaseAuth.getInstance();
+
     }
 
     //This function sends user to signUp activity
@@ -77,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = auth.getCurrentUser();
                             toastMessage("Authentication Success");
-                            Intent intent = new Intent(MainActivity.this, DisplayTasksActivity.class);
+                            Intent intent = new Intent(MainActivity.this, WelcomeActivity.class);
                             startActivity(intent);
                         }
                         else {
@@ -89,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
+
 
     /**
      * This method will be called to minimize the on screen keyboard in the Activity
