@@ -15,12 +15,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,15 +50,14 @@ public class AddTasksActivity extends AppCompatActivity {
         String taskName = taskNameEditText.getText().toString();
         Map<String, Object> taskToAdd = new HashMap<String, Object>();
         taskToAdd.put(NAME_TASK, taskName);
-        Log.i(TAG, taskToAdd.toString());
 
         db.collection("TaskList").document("TaskObject").set(taskToAdd).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     Log.i(TAG, "Success");
-                    toastMessage("Task Addition Success");
-                    finish();
+                    //toastMessage("Task Addition Success");
+                    showData();
                 }
                 else{
                     Log.i(TAG, "Failure");
@@ -66,6 +65,36 @@ public class AddTasksActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void showData() {
+        ArrayList<Task> myTasks = new ArrayList<Task>();
+        //toastMessage("goes into a different fxn");
+        db.collection("TaskList").orderBy(NAME_TASK).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document: task.getResult()) {
+                                Log.i(TAG, document.getId() + " =>" + document.getData());
+                                Task t = new Task(document.getString(NAME_TASK), document.getId());
+                                myTasks.add(t);
+                                toastMessage("Task Object added");
+                            }
+                        }
+                        else {
+                            Log.i(TAG, "Error getting documents", task.getException());
+                        }
+
+                        // Start new activity and send it the ArrayList of Event objects
+                        //This part sends the array list we just made to the DisplayEventsActivity
+                        //myTasks.add(t);
+                        /*Intent intent = new Intent(AddTasksActivity.this, DisplayTasksActivity.class);
+                        intent.putExtra("tasks", myTasks);
+                        startActivity(intent);*/
+                    }
+                });
+
+
     }
 
     //https://learntodroid.com/how-to-switch-between-activities-in-android/
