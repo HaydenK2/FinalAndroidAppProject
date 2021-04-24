@@ -56,7 +56,7 @@ public class AddTasksActivity extends AppCompatActivity {
             public void onSuccess(DocumentReference documentReference) {
                     toastMessage("Event stored successfully");
                     Log.i(TAG, "Success");
-
+                    showData();
                 }
             })
             .addOnFailureListener(new OnFailureListener() {
@@ -69,16 +69,15 @@ public class AddTasksActivity extends AppCompatActivity {
     }
 
     public void showData() {
-        ArrayList<Task> myTasks = new ArrayList<Task>();
-
+        ArrayList<TaskParcelable> myTasks = new ArrayList<TaskParcelable>();
         db.collection("TaskList").orderBy(NAME_TASK).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document: task.getResult()) {
                                 Log.i(TAG, document.getId() + " =>" + document.getData());
-                                //Task t = new Task(document.getString(NAME_TASK), document.getId());
-                                //myTasks.add(t);
+                                TaskParcelable t = new TaskParcelable(document.getString(NAME_TASK), document.getId());
+                                myTasks.add(t);
                                 toastMessage("Task Object added");
                             }
                         }
@@ -89,9 +88,9 @@ public class AddTasksActivity extends AppCompatActivity {
                         // Start new activity and send it the ArrayList of Event objects
                         //This part sends the array list we just made to the DisplayEventsActivity
                         //myTasks.add(t);
-                        /*Intent intent = new Intent(AddTasksActivity.this, DisplayTasksActivity.class);
+                        Intent intent = new Intent(AddTasksActivity.this, DisplayTasksActivity.class);
                         intent.putExtra("tasks", myTasks);
-                        startActivity(intent);*/
+                        startActivity(intent);
                     }
                 });
 

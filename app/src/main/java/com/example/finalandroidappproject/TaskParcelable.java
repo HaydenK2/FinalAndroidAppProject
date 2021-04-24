@@ -1,11 +1,9 @@
 package com.example.finalandroidappproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Task implements Parcelable {
+public class TaskParcelable implements Parcelable {
     private String taskName;
     private String key;
 
@@ -28,20 +26,20 @@ public class Task implements Parcelable {
     }
 
     //Required for Parcelable to work
-    public static final Parcelable.Creator<Task> CREATOR = new Parcelable.Creator<Task>() {
+    public static final Parcelable.Creator<TaskParcelable> CREATOR = new Parcelable.Creator<TaskParcelable>() {
 
         @Override
-        public Task createFromParcel(Parcel parcel) { return new Task(parcel);}
+        public TaskParcelable createFromParcel(Parcel parcel) { return new TaskParcelable(parcel);}
 
         @Override
-        public Task[] newArray(int size) { return new Task[0];}
+        public TaskParcelable[] newArray(int size) { return new TaskParcelable[0];}
     };
 
     /**Constructor
      *
      * @param parcel
      */
-    public Task(Parcel parcel){
+    public TaskParcelable(Parcel parcel){
         taskName = parcel.readString();
         key = parcel.readString();
     }
@@ -50,7 +48,7 @@ public class Task implements Parcelable {
      *
      * @param taskName
      */
-    public Task(String taskName){
+    public TaskParcelable(String taskName){
         this.taskName = taskName;
         this.key = "no key yet";
     }
@@ -60,7 +58,7 @@ public class Task implements Parcelable {
      * @param taskName
      * @param key
      */
-    public Task(String taskName, String key){
+    public TaskParcelable(String taskName, String key){
         this.taskName = taskName;
         this.key = key;
     }
@@ -78,7 +76,7 @@ public class Task implements Parcelable {
         dest.writeString(key);
     }
 
-    public boolean equals(Task other) {
+    public boolean equals(TaskParcelable other) {
         return this.taskName.equals(other.taskName);
     }
 

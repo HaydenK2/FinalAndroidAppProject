@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FInalAndroidAppProject">
-        <activity android:name=".Task"></activity>
+        <activity android:name=".TaskParcelable"></activity>
+        <activity android:name=".Task" />
         <activity android:name=".DisplayTasksActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".AddTasksActivity" />
