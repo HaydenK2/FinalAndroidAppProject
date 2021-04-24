@@ -51,33 +51,34 @@ public class AddTasksActivity extends AppCompatActivity {
         Map<String, Object> taskToAdd = new HashMap<String, Object>();
         taskToAdd.put(NAME_TASK, taskName);
 
-        db.collection("TaskList").document("TaskObject").set(taskToAdd).addOnCompleteListener(new OnCompleteListener<Void>() {
+        db.collection("TaskList").add(taskToAdd).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
+            public void onSuccess(DocumentReference documentReference) {
+                    toastMessage("Event stored successfully");
                     Log.i(TAG, "Success");
-                    //toastMessage("Task Addition Success");
-                    showData();
+
                 }
-                else{
+            })
+            .addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    toastMessage("Event failed to add");
                     Log.i(TAG, "Failure");
-                    toastMessage("Task Addition Failed");
                 }
-            }
-        });
+            });
     }
 
     public void showData() {
         ArrayList<Task> myTasks = new ArrayList<Task>();
-        //toastMessage("goes into a different fxn");
+
         db.collection("TaskList").orderBy(NAME_TASK).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document: task.getResult()) {
                                 Log.i(TAG, document.getId() + " =>" + document.getData());
-                                Task t = new Task(document.getString(NAME_TASK), document.getId());
-                                myTasks.add(t);
+                                //Task t = new Task(document.getString(NAME_TASK), document.getId());
+                                //myTasks.add(t);
                                 toastMessage("Task Object added");
                             }
                         }
