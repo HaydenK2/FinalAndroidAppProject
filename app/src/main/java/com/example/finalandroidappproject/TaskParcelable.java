@@ -50,7 +50,7 @@ public class TaskParcelable implements Parcelable {
         key = parcel.readString();
     }
 
-    /**
+    /**Constructor
      *
      * @param taskName
      */
@@ -59,7 +59,7 @@ public class TaskParcelable implements Parcelable {
         this.key = "no key yet";
     }
 
-    /**
+    /**Constructor
      *
      * @param taskName
      * @param key
@@ -103,7 +103,10 @@ public class TaskParcelable implements Parcelable {
 
     }
 
-    //getters and setters
+    /**getters and setters
+     *
+     */
+
     public void setKey(String key){
         this.key = key;
     }

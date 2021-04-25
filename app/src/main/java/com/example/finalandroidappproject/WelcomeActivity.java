@@ -30,6 +30,10 @@ public class WelcomeActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
     }
 
+    /**This function puts the data from the firestore and places it on the DisplayTasksActivity.
+     *
+     * @param v
+     */
     public void showData(View v) {
         ArrayList<TaskParcelable> myTasks = new ArrayList<TaskParcelable>();
         db.collection("TaskList").orderBy(AddTasksActivity.NAME_TASK).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

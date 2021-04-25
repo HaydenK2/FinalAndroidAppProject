@@ -42,7 +42,7 @@ public class AddTasksActivity extends AppCompatActivity {
     }
 
     /** This function adds a task to the list of task on the TaskActivity Page
-    /   reference:https://www.youtube.com/watch?v=y2op1D0W8oE
+    /   reference: https://www.youtube.com/watch?v=y2op1D0W8oE
      */
     public void addTask (View v) {
         EditText taskNameEditText = (EditText) findViewById(R.id.editTextTaskNameText);
@@ -100,9 +100,10 @@ public class AddTasksActivity extends AppCompatActivity {
 
     }
 
-
-    //https://learntodroid.com/how-to-switch-between-activities-in-android/
-    //goes back to previous activity
+    /**this function goes back to previous activity
+     * reference: https://learntodroid.com/how-to-switch-between-activities-in-android/
+     * @param v
+     */
     public void goBack(View v){
         finish();
     }

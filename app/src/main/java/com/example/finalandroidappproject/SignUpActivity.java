@@ -41,7 +41,9 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
 
-    //https://firebase.google.com/docs/auth/android/password-auth?authuser=0
+    /**This function allows the user to create an account using the email and password they filled out on the sign up activity
+     * reference: https://firebase.google.com/docs/auth/android/password-auth?authuser=0
+     */
     public void signUp(View v) {
 
         EditText emailEditText = (EditText) findViewById(R.id.editTextTextEmailAddress);
@@ -74,7 +76,9 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    //Goes back to previous screen
+    /**This function lets the user go back to previous screen
+     *
+     */
     public void goBack(View v){
         finish();
     }

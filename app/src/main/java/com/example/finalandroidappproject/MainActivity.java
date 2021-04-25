@@ -55,15 +55,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //This function sends user to signUp activity
-    //https://learntodroid.com/how-to-switch-between-activities-in-android/
+    /** This function sends user to signUp activity
+     * reference: https://learntodroid.com/how-to-switch-between-activities-in-android/
+     */
     public void toSignUp(View v){
         Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
         startActivity(intent);
     }
 
-
-    //https://firebase.google.com/docs/auth/android/password-auth?authuser=0
+    /**This function uses firebase and logs the user into the app
+     * reference: https://firebase.google.com/docs/auth/android/password-auth?authuser=0
+     * @param v
+     */
     public void signIn(View v) {
         EditText emailEditText = (EditText) findViewById(R.id.editTextTextEmailAddress);
         EditText passEditText = (EditText) findViewById(R.id.editTextTextPassword);
@@ -111,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
+    /**This is an alert dialogue funciton
      * Source: https://suragch.medium.com/making-an-alertdialog-in-android-2045381e2edb
      */
     public void showAlertDialogue(View view, String str){
@@ -122,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    /**This functions just makes writing toast messages easier
+    /**This function just makes writing toast messages easier
      *
      */
     private void toastMessage(String message){
