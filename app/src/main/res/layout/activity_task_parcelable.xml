@@ -35,7 +35,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
         android:text="X"
-        android:onClick="removeTask"
         android:textSize="15dp"
         app:layout_constraintStart_toEndOf="@+id/taskName"
         app:layout_constraintTop_toTopOf="parent" />

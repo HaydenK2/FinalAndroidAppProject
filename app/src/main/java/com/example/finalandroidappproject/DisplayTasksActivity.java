@@ -22,12 +22,14 @@ public class DisplayTasksActivity extends AppCompatActivity {
     private ArrayList<TaskParcelable> myTasks;
     public static final String TAG = "DisplayTasksActivity";
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_tasks);
+
+        db = FirebaseFirestore.getInstance();
 
         // This Activity received an arraylist of all the events pulled from firebase to populate the ListView with
         Intent intent = getIntent();
