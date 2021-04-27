@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FInalAndroidAppProject">
-        <activity android:name=".WelcomeActivity"></activity>
+        <activity android:name=".CalendarActivity"></activity>
+        <activity android:name=".WelcomeActivity" />
         <activity android:name=".TaskParcelable" />
         <activity android:name=".Task" />
         <activity android:name=".DisplayTasksActivity" />
