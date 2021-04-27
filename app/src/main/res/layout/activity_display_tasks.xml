@@ -4,18 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
+    android:textAlignment="center"
+    android:padding="40dp"
     tools:context=".DisplayTasksActivity">
 
     <TextView
         android:id="@+id/taskTitleText"
-        android:layout_width="122dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="32dp"
-        android:text="TASKS"
-        android:textSize="40dp"
+        android:layout_width="225dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="56dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="T A S K S"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
@@ -23,17 +28,24 @@
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/taskTitleText"
-        tools:layout_editor_absoluteX="0dp"></ListView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskTitleText"></ListView>
 
     <Button
         android:id="@+id/addTaskButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/roboto_bold"
         android:onClick="addTask"
-        android:text="Add Task"
+        android:text="Login"
+        app:backgroundTint="@color/purple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskList"
+        app:layout_constraintVertical_bias="0.877" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
