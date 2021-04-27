@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+    <style name="editTextSettings">
+        <item name="android:background">@color/black</item>
+        <item name="android:textColor">@color/lightGray</item>
+        <item name="android:layout_width">@dimen/editTextWidth</item>
+        <item name="android:layout_height">@dimen/editTextHeight</item>
+        <item name="android:textColorHint">@color/lightGray</item>
+        <item name="android:textSize">@dimen/textSize</item>
+    </style>
 </resources>

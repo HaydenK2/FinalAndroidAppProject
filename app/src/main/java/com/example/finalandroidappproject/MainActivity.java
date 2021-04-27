@@ -119,6 +119,13 @@ public class MainActivity extends AppCompatActivity {
 
     /**This is an alert dialogue funciton
      * Source: https://suragch.medium.com/making-an-alertdialog-in-android-2045381e2edb
+     * public void showAlertDialogue(View view, String str){
+     *         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+     *         builder.setMessage(str);
+     *         builder.setPositiveButton("OK", null);
+     *         AlertDialog dialog = builder.create();
+     *         dialog.show();
+     *     }
      */
     public void showAlertDialogue(View view, String str){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
