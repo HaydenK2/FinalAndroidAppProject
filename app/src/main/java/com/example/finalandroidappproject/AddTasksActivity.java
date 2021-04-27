@@ -48,31 +48,40 @@ public class AddTasksActivity extends AppCompatActivity {
         EditText taskNameEditText = (EditText) findViewById(R.id.editTextTaskNameText);
 
         String taskName = taskNameEditText.getText().toString();
-        Map<String, Object> taskToAdd = new HashMap<String, Object>();
-        taskToAdd.put(NAME_TASK, taskName);
 
-        db.collection("TaskList").add(taskToAdd).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
+
+        if(taskName.equals("")){
+            toastMessage("Please enter a name for your task");
+        }
+
+        else{
+
+            Map<String, Object> taskToAdd = new HashMap<String, Object>();
+            taskToAdd.put(NAME_TASK, taskName);
+
+            db.collection("TaskList").add(taskToAdd).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                @Override
+                public void onSuccess(DocumentReference documentReference) {
                     toastMessage("Task stored successfully");
                     Log.i(TAG, "Success");
                     showData();
                 }
             })
-            .addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    toastMessage("Task failed to add");
-                    Log.i(TAG, "Failure");
-                }
-            });
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            toastMessage("Task failed to add");
+                            Log.i(TAG, "Failure");
+                        }
+                    });
+        }
     }
 
 
     /**This function puts the data from the firestore and places it on the DisplayTasksActivity.
      *
      */
-    public void showData() {
+    private void showData() {
         ArrayList<TaskParcelable> myTasks = new ArrayList<TaskParcelable>();
         db.collection("TaskList").orderBy(NAME_TASK).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override

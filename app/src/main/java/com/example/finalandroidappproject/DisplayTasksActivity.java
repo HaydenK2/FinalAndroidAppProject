@@ -11,12 +11,18 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+
+
 import java.util.ArrayList;
 
 public class DisplayTasksActivity extends AppCompatActivity {
 
     private ArrayList<TaskParcelable> myTasks;
     public static final String TAG = "DisplayTasksActivity";
+
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +49,14 @@ public class DisplayTasksActivity extends AppCompatActivity {
                 TaskParcelable taskO = myTasks.get(i);
                 Log.i(TAG, taskO.toString());
 
+            }
+
+            /**This function removes the task that's selected from the firebase firestore
+             *
+             * @param v
+             */
+            public void removeTask(View v, int i){
+                db.collection("TaskList").document(myTasks.get(i).getKey()).delete();
             }
         });
     }

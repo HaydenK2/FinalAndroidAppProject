@@ -5,13 +5,13 @@ import android.os.Parcelable;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.firebase.firestore.FirebaseFirestore;
+
 
 public class TaskParcelable implements Parcelable {
     private String taskName;
     private String key;
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();;
+
 
     /**
      * This method is required for Parceable interface.  As of now, this method is in the default state
@@ -87,13 +87,7 @@ public class TaskParcelable implements Parcelable {
     public boolean equals(TaskParcelable other) {
         return this.taskName.equals(other.taskName);
     }
-    /**This function removes the task that's selected from the firebase firestore
-     *
-     * @param v
-     */
-    public void removeTask(View v){
-        db.collection("TaskList").document(getKey()).delete();
-    }
+
 
     /**This function removes the task that's selected and does something else (Idk add a point or something)
      *

@@ -41,9 +41,8 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
     // reference to entire database
     private static final String TAG = "EmailPassword";
-
+    //Possible class that has all of firebase
     private FirebaseAuth auth;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,27 +73,31 @@ public class MainActivity extends AppCompatActivity {
         String email = emailEditText.getText().toString();
         String password = passEditText.getText().toString();
         Log.e("KIM", "Typing " + email + " and " + password);
+        if(email.equals("") || password.equals("")){
+            toastMessage("Please enter an email and/or password");
+        }
+        else{
+            auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Log.d(TAG, "signInWithEmail:success");
+                                FirebaseUser user = auth.getCurrentUser();
+                                toastMessage("Authentication Success");
+                                Intent intent = new Intent(MainActivity.this, WelcomeActivity.class);
+                                startActivity(intent);
+                            }
+                            else {
+                                // If sign in fails, display a message to the user.
+                                Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                toastMessage("Authentication Failed");
 
-        auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
-                            FirebaseUser user = auth.getCurrentUser();
-                            toastMessage("Authentication Success");
-                            Intent intent = new Intent(MainActivity.this, WelcomeActivity.class);
-                            startActivity(intent);
+                            }
                         }
-                        else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            toastMessage("Authentication Failed");
-
-                        }
-                    }
-                });
+                    });
+        }
     }
 
 
