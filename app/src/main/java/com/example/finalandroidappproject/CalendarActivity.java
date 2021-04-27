@@ -4,9 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.CalendarContract;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.TextView;
 
 import java.util.Calendar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CalendarActivity extends AppCompatActivity {
@@ -15,26 +19,18 @@ public class CalendarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
-        Calendar beginTime = Calendar.getInstance();
-        beginTime.set(2012, 0, 19, 7, 30);
-        Calendar endTime = Calendar.getInstance();
-        endTime.set(2012, 0, 19, 8, 30);
-        Intent intent = new Intent(Intent.ACTION_INSERT)
-                .setData(CalendarContract.Events.CONTENT_URI);
-        /**        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, beginTime.getTimeInMillis())
-         .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime.getTimeInMillis())
-         .putExtra(CalendarContract.Events.TITLE, "Yoga")
-         .putExtra(CalendarContract.Events.DESCRIPTION, "Group class")
-         .putExtra(CalendarContract.Events.EVENT_LOCATION, "The gym")
-         .putExtra(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_BUSY)
-         .putExtra(Intent.EXTRA_EMAIL, "rowan@example.com,trevor@example.com");*/
-        startActivity(intent);
-    }
 
-    public void addTask(View V){
-        Intent intent = new Intent(Intent.ACTION_INSERT);
-        intent.setData(CalendarContract.Events.CONTENT_URI);
-        //startActivity();
+        CalendarView calendarView = findViewById(R.id.calendarView);
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2){
+                String date = i + "/" + i1 + "/" + i2;
+
+                Intent intent = new Intent(CalendarActivity.this, MainActivity.class);
+                intent.putExtra("date", date);
+                startActivity(intent);
+            }
+        });
     }
 }
 

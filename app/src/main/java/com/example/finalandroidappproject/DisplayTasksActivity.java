@@ -44,23 +44,23 @@ public class DisplayTasksActivity extends AppCompatActivity {
 
         // Create a setOnItemClickListener for the listView to find out which element they clicked on
 
-        allTasksListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        //allTasksListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            //@Override
+            /**public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 TaskParcelable taskO = myTasks.get(i);
                 Log.i(TAG, taskO.toString());
 
-            }
+            }*/
 
             /**This function removes the task that's selected from the firebase firestore
              *
              * @param v
              */
-            public void removeTask(View v, int i){
-                db.collection("TaskList").document(myTasks.get(i).getKey()).delete();
-            }
-        });
+            //public void removeTask(View v, int i){
+                //db.collection("TaskList").document(myTasks.get(i).getKey()).delete();
+            //}
+       // });
     }
 
     /**This function sends the user to the acitivty where you can add tasks
@@ -97,11 +97,11 @@ public class DisplayTasksActivity extends AppCompatActivity {
             TextView taskNameTV = (TextView) view.findViewById(R.id.taskName);
 
             // Here I am getting the specific element in the database we are currently displaying
-            TaskParcelable e = myTasks.get(i);
+            //TaskParcelable e = myTasks.get(i);
 
             // Set the correct image, event name, and event date for the Event object we are
             // displaying in the list
-            taskNameTV.setText(e.getTaskName());
+            //taskNameTV.setText(e.getTaskName());
 
             // return this view element with the correct data inserted
             return view;
