@@ -15,7 +15,6 @@
         <activity android:name=".DisplayTasksActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".AddTasksActivity" />
-        <activity android:name=".MainActivity2" />
         <activity android:name=".MainActivity">
             android:theme="@
             <intent-filter>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Final Android App Project</string>
+    <string name="app_name">Task Master</string>
     <string name="email_address">Email Address</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
