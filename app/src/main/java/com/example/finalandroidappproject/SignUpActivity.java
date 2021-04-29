@@ -46,8 +46,13 @@ public class SignUpActivity extends AppCompatActivity {
      */
     public void signUp(View v) {
 
+<<<<<<< Updated upstream
         EditText emailEditText = (EditText) findViewById(R.id.textEmailAddress);
         EditText passEditText = (EditText) findViewById(R.id.textPassword);
+=======
+        EditText emailEditText = (EditText) findViewById(R.id.textUsername);
+        EditText passEditText = (EditText) findViewById(R.id.textEmailAddress);
+>>>>>>> Stashed changes
 
         String email = emailEditText.getText().toString();
         String password = passEditText.getText().toString();

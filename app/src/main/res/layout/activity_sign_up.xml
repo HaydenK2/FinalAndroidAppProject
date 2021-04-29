@@ -95,7 +95,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textPassword" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/signUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="signUp"

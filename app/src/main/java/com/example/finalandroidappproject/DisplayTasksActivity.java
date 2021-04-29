@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -48,18 +49,17 @@ public class DisplayTasksActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                TaskParcelable taskO = myTasks.get(i);
-                Log.i(TAG, taskO.toString());
+                //TaskParcelable taskO = myTasks.get(i);
+                //Log.i(TAG, taskO.toString());
 
+                //toastMessage(taskO.getKey());
+
+                // start an intent to load the page to edit this element that has been clicked on
+                Intent intent = new Intent(DisplayTasksActivity.this, AddTasksActivity.class);
+                //intent.putExtra("taskO", taskO);
+                startActivity(intent);
             }
 
-            /**This function removes the task that's selected from the firebase firestore
-             *
-             * @param v
-             */
-            public void removeTask(View v, int i){
-                db.collection("TaskList").document(myTasks.get(i).getKey()).delete();
-            }
         });
     }
 
@@ -72,6 +72,12 @@ public class DisplayTasksActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**This function just makes writing toast messages easier
+     *
+     */
+    private void toastMessage(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
 
     class CustomAdapter extends BaseAdapter {
 
