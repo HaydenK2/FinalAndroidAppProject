@@ -52,12 +52,14 @@ public class DisplayTasksActivity extends AppCompatActivity {
                 TaskParcelable taskO = myTasks.get(i);
                 Log.i(TAG, taskO.toString());
 
-                //toastMessage(taskO.getKey());
+                toastMessage(taskO.getKey());
 
                 // start an intent to load the page to edit this element that has been clicked on
                 Intent intent = new Intent(DisplayTasksActivity.this, AddTasksActivity.class);
                 //intent.putExtra("taskO", taskO);
                 startActivity(intent);
+
+                //Helpful? https://www.youtube.com/watch?v=GtxVILjLcw8
             }
 
         });
