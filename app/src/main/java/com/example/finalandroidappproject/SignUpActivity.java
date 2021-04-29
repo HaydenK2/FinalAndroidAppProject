@@ -45,20 +45,33 @@ public class SignUpActivity extends AppCompatActivity {
      * reference: https://firebase.google.com/docs/auth/android/password-auth?authuser=0
      */
     public void signUp(View v) {
+        //HOw to add this??
+        EditText usernameEditText = (EditText) findViewById(R.id.textUsername);
 
-<<<<<<< Updated upstream
         EditText emailEditText = (EditText) findViewById(R.id.textEmailAddress);
         EditText passEditText = (EditText) findViewById(R.id.textPassword);
-=======
-        EditText emailEditText = (EditText) findViewById(R.id.textUsername);
-        EditText passEditText = (EditText) findViewById(R.id.textEmailAddress);
->>>>>>> Stashed changes
+        EditText passConfirmEditText = (EditText) findViewById(R.id.textConfirmPassword);
 
         String email = emailEditText.getText().toString();
         String password = passEditText.getText().toString();
+        String confirmPass = passConfirmEditText.getText().toString();
 
         Log.e("KIM", "Typing " + email + " and " + password);
+        if(password.equals(confirmPass)){
+            createAccount(email, password);
+        }
+        else {
+            toastMessage("Passwords don't match" );
+        }
 
+    }
+
+    /**This function creates the account that the user typed in for email and password
+     *
+     * @param email
+     * @param password
+     */
+    private void createAccount(String email, String password){
         if(email.equals("") || password.equals("")){
             toastMessage("Please enter an email and/or password");
         }
@@ -83,7 +96,6 @@ public class SignUpActivity extends AppCompatActivity {
                         }
                     });
         }
-
     }
 
     /**This function lets the user go back to previous screen

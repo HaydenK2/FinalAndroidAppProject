@@ -49,8 +49,8 @@ public class DisplayTasksActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                //TaskParcelable taskO = myTasks.get(i);
-                //Log.i(TAG, taskO.toString());
+                TaskParcelable taskO = myTasks.get(i);
+                Log.i(TAG, taskO.toString());
 
                 //toastMessage(taskO.getKey());
 

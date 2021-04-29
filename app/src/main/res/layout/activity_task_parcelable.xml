@@ -13,6 +13,7 @@
         android:layout_marginStart="116dp"
         android:layout_marginTop="44dp"
         android:text="TextView"
+        android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
