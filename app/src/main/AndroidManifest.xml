@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FInalAndroidAppProject">
-        <activity android:name=".WelcomeActivity"></activity>
+        <activity android:name=".FirebaseTaskActivity"></activity>
+        <activity android:name=".DisplayTaskDetailsActivity" />
+        <activity android:name=".WelcomeActivity" />
         <activity android:name=".TaskParcelable" />
         <activity android:name=".Task" />
         <activity android:name=".DisplayTasksActivity" />

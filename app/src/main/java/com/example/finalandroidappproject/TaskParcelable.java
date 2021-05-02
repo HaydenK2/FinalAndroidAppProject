@@ -88,15 +88,6 @@ public class TaskParcelable implements Parcelable {
         return this.taskName.equals(other.taskName);
     }
 
-
-    /**This function removes the task that's selected and does something else (Idk add a point or something)
-     *
-     * @param v
-     */
-    public void completeTask(View v){
-
-    }
-
     /**getters and setters
      *
      */
