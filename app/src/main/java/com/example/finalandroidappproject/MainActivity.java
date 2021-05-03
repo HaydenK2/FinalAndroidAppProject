@@ -55,14 +55,14 @@ public class MainActivity extends AppCompatActivity {
         //Get Firebase Instance
         auth = FirebaseAuth.getInstance();
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-        bottomNav.setOnNavigationItemSelectedListener(navListener);
+        //bottomNav.setOnNavigationItemSelectedListener(navListener);
     }
     /**
      * Referenced from this video and website
      * video: youtube.com/watch?v=tPV8xA7m-iw
      * website: https://codinginflow.com/tutorials/android/bottomnavigationview
      */
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+    /*private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment).commit();
                     return true;
                 }
-            };
+            };*/
 
     /** This function sends user to signUp activity
      * reference: https://learntodroid.com/how-to-switch-between-activities-in-android/
@@ -165,6 +165,27 @@ public class MainActivity extends AppCompatActivity {
     private void toastMessage(String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
+    //For main xml
+    /*<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.codinginflow.bottomnavigationviewexample.MainActivity">
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottom_navigation"/>
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/bottom_navigation"
+            android:background="?android:attr/windowBackground"/>
+    </RelativeLayout>*/
 }
 
 

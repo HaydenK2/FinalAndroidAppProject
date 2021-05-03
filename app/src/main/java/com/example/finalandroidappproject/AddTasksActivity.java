@@ -30,6 +30,7 @@ public class AddTasksActivity extends AppCompatActivity {
 
     // Constants to use for labels in database
     public static final String NAME_TASK = "name";
+    public static final String PRIORITY = "0";
 
     private FirebaseFirestore db;
 
@@ -49,24 +50,30 @@ public class AddTasksActivity extends AppCompatActivity {
 
         String taskName = taskNameEditText.getText().toString();
 
+        /*//https://stackoverflow.com/questions/15037465/converting-edittext-to-int-android
+        EditText priorityEditText = (EditText) findViewById(R.id.editTextPriorityText);
+        int priorityInt = Integer.parseInt( priorityEditText.getText().toString());
+        */
 
         if(taskName.equals("")){
-            toastMessage("Please enter a name for your task");
+            toastMessage("Please enter a name and/or priority number for your task");
         }
 
         else{
 
             Map<String, Object> taskToAdd = new HashMap<String, Object>();
             taskToAdd.put(NAME_TASK, taskName);
+            //taskToAdd.put(PRIORITY, priorityInt);
 
-            db.collection("TaskList").add(taskToAdd).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                @Override
-                public void onSuccess(DocumentReference documentReference) {
-                    toastMessage("Task stored successfully");
-                    Log.i(TAG, "Success");
-                    showData();
-                }
-            })
+            db.collection("TaskList").add(taskToAdd)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            toastMessage("Task stored successfully");
+                            Log.i(TAG, "Success");
+                            showData();
+                        }
+                    })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
@@ -97,9 +104,8 @@ public class AddTasksActivity extends AppCompatActivity {
                     Log.i(TAG, "Error getting documents", task.getException());
                 }
 
-                // Start new activity and send it the ArrayList of Event objects
-                //This part sends the array list we just made to the DisplayEventsActivity
-                //myTasks.add(t);
+                // Start new activity and send it the ArrayList of TaskParcelable objects
+                //This part sends the array list we just made to the DisplayTasksActivity
                 Intent intent = new Intent(AddTasksActivity.this, DisplayTasksActivity.class);
                 intent.putExtra("tasks", myTasks);
                 startActivity(intent);
