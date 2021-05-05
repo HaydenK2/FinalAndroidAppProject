@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/displayTasksActivity2">
+    <activity
+        android:id="@+id/displayTasksActivity2"
+        android:name="com.example.finalandroidappproject.DisplayTasksActivity"
+        android:label="activity_display_tasks"
+        tools:layout="@layout/activity_display_tasks" />
+    <activity
+        android:id="@+id/addTasksActivity"
+        android:name="com.example.finalandroidappproject.AddTasksActivity"
+        android:label="activity_add_tasks"
+        tools:layout="@layout/activity_add_tasks" />
+</navigation>

@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="1dp"
+        android:background="@color/black"
         app:menu="@menu/bottom_navigation" />
 
 </RelativeLayout>
