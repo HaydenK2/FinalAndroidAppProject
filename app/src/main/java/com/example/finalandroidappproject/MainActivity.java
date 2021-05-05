@@ -1,8 +1,5 @@
 package com.example.finalandroidappproject;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -14,29 +11,18 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
-//import android.support.v7.app.AlertDialog;
-
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import android.support.design.widget.BottomNavigationView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+//import android.support.v7.app.AlertDialog;
 
 
 //Referenced this to find the auth
@@ -62,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
      * video: youtube.com/watch?v=tPV8xA7m-iw
      * website: https://codinginflow.com/tutorials/android/bottomnavigationview
      */
-    /*private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -76,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment).commit();
                     return true;
                 }
-            };*/
+            };
 
     /** This function sends user to signUp activity
      * reference: https://learntodroid.com/how-to-switch-between-activities-in-android/
