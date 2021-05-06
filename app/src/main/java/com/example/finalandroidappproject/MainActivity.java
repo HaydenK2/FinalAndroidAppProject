@@ -8,7 +8,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -40,8 +42,23 @@ public class MainActivity extends AppCompatActivity {
 
         //Get Firebase Instance
         auth = FirebaseAuth.getInstance();
+<<<<<<< HEAD
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         //bottomNav.setOnNavigationItemSelectedListener(navListener);
+=======
+        TextView textView = findViewById(R.id.textView4);
+        Button button = findViewById(R.id.button3);
+        String date =  getIntent().getStringExtra("date");
+        if(date != null)
+            textView.setText(date);
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(MainActivity.this,CalendarActivity.class);
+                startActivity(intent);
+            }
+        });
+>>>>>>> NewCal
     }
     /**
      * Referenced from this video and website
@@ -76,9 +93,15 @@ public class MainActivity extends AppCompatActivity {
      * reference: https://firebase.google.com/docs/auth/android/password-auth?authuser=0
      * @param v
      */
+<<<<<<< HEAD
     public void signIn(View v) {
         EditText emailEditText = (EditText) findViewById(R.id.textEmailAddress);
         EditText passEditText = (EditText) findViewById(R.id.textPassword);
+=======
+ /**   public void signIn(View v) {
+        EditText emailEditText = (EditText) findViewById(R.id.editTextTextEmailAddress);
+        EditText passEditText = (EditText) findViewById(R.id.editTextTextPassword);
+>>>>>>> NewCal
 
         String email = emailEditText.getText().toString();
         String password = passEditText.getText().toString();
@@ -108,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
         }
-    }
+    }*/
 
 
 

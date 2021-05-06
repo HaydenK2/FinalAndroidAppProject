@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="@color/black"
     android:textAlignment="center"
     tools:context=".DisplayTasksActivity">
@@ -17,9 +17,7 @@
         android:text="T A S K S"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="48sp" />
 
     <ListView
         android:id="@+id/taskList"
@@ -31,16 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/taskTitleText"
         app:layout_constraintVertical_bias="0.28">
 
-        <TextView
-            android:id="@+id/taskCompletedText"
-            android:layout_width="115dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="40dp"
-            android:text="Task completed: 0"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+
     </ListView>
 
     <Button
@@ -70,11 +59,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <TextView
+        android:id="@+id/taskCompletedText"
+        android:layout_width="115dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="40dp"
+        android:text="Task completed: 0"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <!--<com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="1dp"
-        app:menu="@menu/bottom_navigation" />
+        app:menu="@menu/bottom_navigation" />-->
 </RelativeLayout>
