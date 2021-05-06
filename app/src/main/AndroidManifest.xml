@@ -9,12 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FInalAndroidAppProject">
-<<<<<<< HEAD
+
         <activity android:name=".FirebaseTaskActivity"></activity>
         <activity android:name=".DisplayTaskDetailsActivity" />
-=======
+
         <activity android:name=".CalendarActivity"></activity>
->>>>>>> NewCal
+
         <activity android:name=".WelcomeActivity" />
         <activity android:name=".TaskParcelable" />
         <activity android:name=".Task" />
@@ -22,7 +22,7 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".AddTasksActivity" />
         <activity android:name=".MainActivity">
-            android:theme="@
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

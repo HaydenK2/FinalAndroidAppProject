@@ -42,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
 
         //Get Firebase Instance
         auth = FirebaseAuth.getInstance();
-<<<<<<< HEAD
+
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         //bottomNav.setOnNavigationItemSelectedListener(navListener);
-=======
+
         TextView textView = findViewById(R.id.textView4);
         Button button = findViewById(R.id.button3);
         String date =  getIntent().getStringExtra("date");
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
->>>>>>> NewCal
+
     }
     /**
      * Referenced from this video and website
@@ -93,15 +93,10 @@ public class MainActivity extends AppCompatActivity {
      * reference: https://firebase.google.com/docs/auth/android/password-auth?authuser=0
      * @param v
      */
-<<<<<<< HEAD
+
     public void signIn(View v) {
         EditText emailEditText = (EditText) findViewById(R.id.textEmailAddress);
         EditText passEditText = (EditText) findViewById(R.id.textPassword);
-=======
- /**   public void signIn(View v) {
-        EditText emailEditText = (EditText) findViewById(R.id.editTextTextEmailAddress);
-        EditText passEditText = (EditText) findViewById(R.id.editTextTextPassword);
->>>>>>> NewCal
 
         String email = emailEditText.getText().toString();
         String password = passEditText.getText().toString();
@@ -131,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
         }
-    }*/
+    }
 
 
 
