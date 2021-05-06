@@ -1,7 +1,5 @@
 package com.example.finalandroidappproject;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,10 +8,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,7 +24,67 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 
 public class DisplayTasksActivity extends AppCompatActivity {
+    class CustomAdapter extends BaseAdapter {
 
+
+        @Override
+        public int getCount() {
+            return myTasks.size();
+        }
+
+        @Override
+        public Object getItem(int position) {return null; }
+
+        @Override
+        public long getItemId(int position) {return 0; }
+
+        /**
+         *Documentation:
+         * https://developer.android.com/reference/android/widget/Adapter.html#getView(int,%20android.view.View,%20android.view.ViewGroup)
+         *
+         *
+         * Get a View that displays the data at the specified position in the data set.
+         * You can either create a View manually or inflate it from an XML layout file.
+         * When the View is inflated, the parent View (GridView, ListView...) will apply
+         * default layout parameters unless you use LayoutInflater.inflate(int, android.view.ViewGroup,
+         * boolean) to specify a root view and to prevent attachment to the root.
+         *
+         * @param i         The element in the array you are displaying
+         * @param view      The old view to reuse if possible.
+         * @param viewGroup The parent group that this view will eventually be attached to
+         * @return          The correct view laid out according to the xml file with the
+         *                  data from the current entry i
+         */
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+
+            // attaches the custom xml design to this View you are creating
+            view = getLayoutInflater().inflate(R.layout.activity_task_parcelable, null);
+
+            // creates references to each element in the custom xml design.  That is why you
+            // need to say view.findViewById because you have to reference the element that
+            // was gotten from the LayoutInflater above
+            TextView taskNameTV = (TextView) view.findViewById(R.id.taskName);
+
+            // Here I am getting the specific element in the database we are currently displaying
+            TaskParcelable t = myTasks.get(i);
+
+            // Set the correct image, event name, and event date for the Event object we are
+            // displaying in the list
+            taskNameTV.setText(t.getTaskName());
+
+            //TaskParcelable e = myTasks.get(i);
+
+            // Set the correct image, event name, and event date for the Event object we are
+            // displaying in the list
+            //taskNameTV.setText(e.getTaskName());
+
+            // return this view element with the correct data inserted
+            return view;
+        }
+
+
+    }
     private ArrayList<TaskParcelable> myTasks;
     public static final String TAG = "DisplayTasksActivity";
 
@@ -57,6 +117,12 @@ public class DisplayTasksActivity extends AppCompatActivity {
         tasksListView.setAdapter(customAdapter);
 
 
+<<<<<<< Updated upstream
+=======
+        //allTasksListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            //@Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+>>>>>>> Stashed changes
 
         // Create a setOnItemClickListener for the listView to find out which element they clicked on
         tasksListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -71,10 +137,29 @@ public class DisplayTasksActivity extends AppCompatActivity {
                 Intent intent = new Intent(DisplayTasksActivity.this, DisplayTaskDetailsActivity.class);
                 intent.putExtra("taskParc", taskO);
                 startActivity(intent);*/
+<<<<<<< Updated upstream
             }
         });
 
     }
+=======
+            //}
+        //});
+                Log.i(TAG, taskO.toString());
+
+            }
+
+            /**This function removes the task that's selected from the firebase firestore
+             *
+             * @param v
+             */
+            //public void removeTask(View v, int i){
+                //db.collection("TaskList").document(myTasks.get(i).getKey()).delete();
+            //}
+       // });
+                    // >>>>>>> NewCal
+    //}
+>>>>>>> Stashed changes
 
     /**This function sends the user to the activity where you can add tasks
      *
@@ -84,7 +169,6 @@ public class DisplayTasksActivity extends AppCompatActivity {
         Intent intent = new Intent(DisplayTasksActivity.this, AddTasksActivity.class);
         startActivity(intent);
     }
-
     /**This function just makes writing toast messages easier
      *
      */
@@ -109,7 +193,10 @@ public class DisplayTasksActivity extends AppCompatActivity {
             showData();
         }
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     private void showData() {
         ArrayList<TaskParcelable> myTasks = new ArrayList<TaskParcelable>();
         db.collection("TaskList").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -133,6 +220,7 @@ public class DisplayTasksActivity extends AppCompatActivity {
             }
         });
     }
+<<<<<<< Updated upstream
 
 
     class CustomAdapter extends BaseAdapter {
@@ -188,8 +276,8 @@ public class DisplayTasksActivity extends AppCompatActivity {
             // return this view element with the correct data inserted
             return view;
         }
+=======
+>>>>>>> Stashed changes
 
 
-    }
 }
-

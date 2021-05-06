@@ -1,8 +1,11 @@
 package com.example.finalandroidappproject;
+<<<<<<< Updated upstream
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+=======
+>>>>>>> Stashed changes
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -56,6 +59,21 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         //bottomNav.setOnNavigationItemSelectedListener(navListener);
+<<<<<<< Updated upstream
+=======
+        TextView textView = findViewById(R.id.textView4);
+        Button button = findViewById(R.id.button3);
+        String date =  getIntent().getStringExtra("date");
+        if(date != null)
+            textView.setText(date);
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(MainActivity.this,CalendarActivity.class);
+                startActivity(intent);
+            }
+        });
+>>>>>>> Stashed changes
     }
     /**
      * Referenced from this video and website
@@ -90,9 +108,20 @@ public class MainActivity extends AppCompatActivity {
      * reference: https://firebase.google.com/docs/auth/android/password-auth?authuser=0
      * @param v
      */
+<<<<<<< Updated upstream
     public void signIn(View v) {
         EditText emailEditText = (EditText) findViewById(R.id.textEmailAddress);
         EditText passEditText = (EditText) findViewById(R.id.textPassword);
+=======
+
+    public void signIn(View v) {
+        EditText emailEditText = (EditText) findViewById(R.id.textEmailAddress);
+        EditText passEditText = (EditText) findViewById(R.id.textPassword);
+
+ /**   public void signIn(View v) {
+        EditText emailEditText = (EditText) findViewById(R.id.editTextTextEmailAddress);
+        EditText passEditText = (EditText) findViewById(R.id.editTextTextPassword);
+>>>>>>> Stashed changes
 
         String email = emailEditText.getText().toString();
         String password = passEditText.getText().toString();
@@ -151,6 +180,7 @@ public class MainActivity extends AppCompatActivity {
      *         dialog.show();
      *     }
      */
+    /**
     public void showAlertDialogue(View view, String str){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(str);
@@ -162,6 +192,7 @@ public class MainActivity extends AppCompatActivity {
     /**This function just makes writing toast messages easier
      *
      */
+    /**
     private void toastMessage(String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
