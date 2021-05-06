@@ -7,6 +7,7 @@
     android:background="@color/black"
     android:textAlignment="center"
     tools:context=".DisplayTasksActivity">
+
     <TextView
         android:id="@+id/taskTitleText"
         android:layout_width="225dp"
@@ -30,6 +31,16 @@
         app:layout_constraintVertical_bias="0.28">
 
 
+        <TextView
+            android:id="@+id/taskCompletedText"
+            android:layout_width="115dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="40dp"
+            android:text="Task completed: 0"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </ListView>
 
     <Button
@@ -59,16 +70,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/taskCompletedText"
-        android:layout_width="115dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="40dp"
-        android:text="Task completed: 0"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
     <!--<com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@id/bottom_navigation"
         android:layout_width="match_parent"
