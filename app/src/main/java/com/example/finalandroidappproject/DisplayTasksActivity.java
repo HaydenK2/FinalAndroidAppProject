@@ -40,6 +40,8 @@ public class DisplayTasksActivity extends AppCompatActivity {
 
     //Audio for when the user completes the task selected
     //https://www.youtube.com/watch?v=C_Ka7cKwXW0
+    //Adds the *mp3 into Android file association
+    //https://developer.clevertap.com/docs/add-a-sound-file-to-your-android-app#:~:text=Right%20click%20on%20Resources%20(res,file%20in%20the%20raw%20folder.
     MediaPlayer completeSoundMP;
 
 
