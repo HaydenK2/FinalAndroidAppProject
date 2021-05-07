@@ -71,6 +71,7 @@
             android:layout_height="wrap_content"
             android:onClick="removeTask"
             android:text="delete" />
+
     </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
