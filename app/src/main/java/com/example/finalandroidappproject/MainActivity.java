@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-        //bottomNav.setOnNavigationItemSelectedListener(navListener);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
 
         TextView textView = findViewById(R.id.textView4);
         Button button = findViewById(R.id.button3);
@@ -72,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
                     Fragment selectedFragment = null;
                     switch(item.getItemId()){
                         case R.id.nav_home:
+                            selectedFragment = new HomeFragment();
+                            break;
+                        case R.id.nav_calendar:
                             selectedFragment = new HomeFragment();
                             break;
                     }
