@@ -22,6 +22,7 @@
         android:inputType="textEmailAddress"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +84,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -101,5 +102,6 @@
         app:layout_constraintEnd_toEndOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         tools:layout_editor_absoluteY="563dp" />
+        -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
