@@ -43,7 +43,8 @@ public class DisplayTasksActivity extends AppCompatActivity {
     //Adds the *mp3 into Android file association
     //https://developer.clevertap.com/docs/add-a-sound-file-to-your-android-app#:~:text=Right%20click%20on%20Resources%20(res,file%20in%20the%20raw%20folder.
     MediaPlayer completeSoundMP;
-
+    MediaPlayer completeSoundMP2;
+    MediaPlayer completeSoundMP3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,8 @@ public class DisplayTasksActivity extends AppCompatActivity {
 
         //Defines the completeSoundMP
         completeSoundMP = MediaPlayer.create(this, R.raw.sus_sound);
+        completeSoundMP2 = MediaPlayer.create(this, R.raw.hit_sound);
+        completeSoundMP3 = MediaPlayer.create(this, R.raw.sound_electro1);
 
         // This Activity received an arraylist of all the events pulled from firebase to populate the ListView with
         Intent intent = getIntent();
@@ -151,14 +154,30 @@ public class DisplayTasksActivity extends AppCompatActivity {
         }
         else{
             db.collection("TaskList").document(key).delete();
-            toastMessage("Task completed");
+            toastMessage("Task Completed!");
 
-            completeSoundMP.start();
+            completeSoundMP3.start();
 
             key ="";
 
             showData();
         }
+    }
+
+    /**This function resets the task that is selected
+     *
+     * @param v
+     */
+    public void resetKey(View v){
+        if(key.equals("")){
+
+        }
+
+        else{
+            toastMessage("Task Deselected");
+            key = "";
+        }
+
     }
 
 
