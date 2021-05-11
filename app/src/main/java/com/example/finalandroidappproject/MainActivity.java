@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Get Firebase Instance
         auth = FirebaseAuth.getInstance();
-
+        /*
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,CalendarActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
     }
     /**

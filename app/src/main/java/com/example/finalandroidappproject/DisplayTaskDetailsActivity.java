@@ -32,9 +32,6 @@ public class DisplayTaskDetailsActivity extends AppCompatActivity {
     // Constants to use for labels in database
     public static final String NAME_TASK = "name";
 
-    //Constant for how much completing task is
-    private static final int TASK_POINT = 1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

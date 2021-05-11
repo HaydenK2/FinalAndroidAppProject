@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
+    android:padding="40dp"
     tools:context=".AddTasksActivity">
 
     <Button
@@ -11,6 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
+        android:fontFamily="@font/roboto_bold"
+        app:backgroundTint="@color/purple"
         android:text="Back"
         android:onClick="goBack"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,6 +27,8 @@
         android:layout_height="53dp"
         android:layout_marginTop="108dp"
         android:text="Add your Task"
+        android:textAlignment="center"
+        android:textColor="@color/lightGray"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -35,6 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="Add Task"
+        android:fontFamily="@font/roboto_bold"
+        app:backgroundTint="@color/purple"
         android:onClick="addTask"
         app:layout_constraintBottom_toTopOf="@+id/backButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="160dp"
         android:text="Task Name"
+        android:textColor="@color/lightGray"
         app:layout_constraintBottom_toTopOf="@+id/addTaskButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.485"
