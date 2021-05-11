@@ -5,6 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     tools:context=".CalendarActivity">
+<<<<<<< Updated upstream
 
     <CalendarView
         android:id="@+id/calendarView"
@@ -18,4 +19,11 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="1dp"
         app:menu="@menu/bottom_navigation" />
+=======
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+>>>>>>> Stashed changes
 </RelativeLayout>

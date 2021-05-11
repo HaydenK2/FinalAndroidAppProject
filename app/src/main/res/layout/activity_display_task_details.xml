@@ -47,9 +47,22 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
         android:onClick="goBack"
+<<<<<<< Updated upstream
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+=======
+        android:text="Back"/>
+    <!--<com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        app:backgroundTint="@color/purple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="1dp"
+        app:menu="@menu/bottom_navigation" />-->
+</RelativeLayout>
+>>>>>>> Stashed changes

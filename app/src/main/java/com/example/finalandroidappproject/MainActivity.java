@@ -57,10 +57,9 @@ public class MainActivity extends AppCompatActivity {
 
         //Get Firebase Instance
         auth = FirebaseAuth.getInstance();
+<<<<<<< Updated upstream
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         //bottomNav.setOnNavigationItemSelectedListener(navListener);
-<<<<<<< Updated upstream
-=======
         TextView textView = findViewById(R.id.textView4);
         Button button = findViewById(R.id.button3);
         String date =  getIntent().getStringExtra("date");
@@ -73,8 +72,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
->>>>>>> Stashed changes
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+        /**
+         TextView textView = findViewById(R.id.textView);
+         Button button = findViewById(R.id.button3);
+         String date =  getIntent().getStringExtra("date");
+         if(date != null)
+         textView.setText(date);
+         button.setOnClickListener(new View.OnClickListener(){
+        @Override public void onClick(View view){
+        Intent intent = new Intent(MainActivity.this,CalendarActivity.class);
+        startActivity(intent);
+        }
+        });*/
+
     }
+
     /**
      * Referenced from this video and website
      * video: youtube.com/watch?v=tPV8xA7m-iw
@@ -84,10 +99,14 @@ public class MainActivity extends AppCompatActivity {
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Fragment selectedFragment = null;
-                    switch(item.getItemId()){
+                    Fragment selectedFragment = new HomeFragment();
+                    switch (item.getItemId()) {
                         case R.id.nav_home:
                             selectedFragment = new HomeFragment();
+                            break;
+
+                        case R.id.nav_calendar:
+                            selectedFragment = new CalendarFragment();
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -96,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             };*/
 
+            };
     /** This function sends user to signUp activity
      * reference: https://learntodroid.com/how-to-switch-between-activities-in-android/
      */
@@ -108,11 +128,10 @@ public class MainActivity extends AppCompatActivity {
      * reference: https://firebase.google.com/docs/auth/android/password-auth?authuser=0
      * @param v
      */
-<<<<<<< Updated upstream
+
     public void signIn(View v) {
         EditText emailEditText = (EditText) findViewById(R.id.textEmailAddress);
         EditText passEditText = (EditText) findViewById(R.id.textPassword);
-=======
 
     public void signIn(View v) {
         EditText emailEditText = (EditText) findViewById(R.id.textEmailAddress);
