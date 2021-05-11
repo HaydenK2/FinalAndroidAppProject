@@ -38,19 +38,21 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/taskList"
         android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="horizontal"
         android:padding="5dp">
 
         <Button
             android:id="@+id/completeTaskButton"
             android:layout_width="0dp"
-            android:layout_weight="4"
             android:layout_height="wrap_content"
-            android:onClick="completeTask"
+            android:layout_weight="4"
             android:fontFamily="@font/roboto_bold"
-            app:backgroundTint="@color/purple"
+            android:onClick="completeTask"
             android:text="complete"
-            />
+            android:textSize="12sp"
+            app:backgroundTint="@color/purple" />
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
@@ -62,6 +64,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
             android:onClick="addTask"
+            android:textSize="12sp"
             android:text="Add Task"
             app:backgroundTint="@color/purple" />
         <Space
@@ -75,6 +78,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
             app:backgroundTint="@color/purple"
+            android:textSize="12sp"
             android:onClick="removeTask"
             android:text="delete" />
     </LinearLayout>
