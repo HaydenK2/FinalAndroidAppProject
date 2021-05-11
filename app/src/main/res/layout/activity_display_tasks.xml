@@ -95,4 +95,16 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="1dp"
         app:menu="@menu/bottom_navigation" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Log Out"
+        android:textSize="12sp"
+        app:backgroundTint="@color/purple" />
 </RelativeLayout>
