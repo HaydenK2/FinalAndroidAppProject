@@ -48,8 +48,9 @@
             android:layout_height="wrap_content"
             android:onClick="completeTask"
             android:fontFamily="@font/roboto_bold"
-            app:backgroundTint="@color/purple"
             android:text="complete"
+            android:textSize="13dp"
+            app:backgroundTint="@color/purple"
             />
         <Space
             android:layout_width="0dp"
