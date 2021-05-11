@@ -47,6 +47,8 @@
             android:layout_weight="4"
             android:layout_height="wrap_content"
             android:onClick="completeTask"
+            android:fontFamily="@font/roboto_bold"
+            app:backgroundTint="@color/purple"
             android:text="complete"
             />
         <Space
@@ -71,6 +73,8 @@
             android:layout_width="0dp"
             android:layout_weight="4"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            app:backgroundTint="@color/purple"
             android:onClick="removeTask"
             android:text="delete" />
     </LinearLayout>
