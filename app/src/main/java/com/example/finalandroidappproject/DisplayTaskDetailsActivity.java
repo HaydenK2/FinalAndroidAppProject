@@ -81,6 +81,8 @@ public class DisplayTaskDetailsActivity extends AppCompatActivity {
         finish();
     }
 
+
+
     /**This function just makes writing toast messages easier
      *
      */

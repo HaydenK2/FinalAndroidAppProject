@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -29,8 +30,10 @@ public class DisplayTasksActivity extends AppCompatActivity {
     private ArrayList<TaskParcelable> myTasks;
     public static final String TAG = "DisplayTasksActivity";
 
-    //tried something; leave in for now
+    //Firestore and Firebase Auth
     private FirebaseFirestore db;
+    private FirebaseAuth auth;
+
     // Constants to use for labels in database
     public static final String NAME_TASK = "name";
 
@@ -51,10 +54,10 @@ public class DisplayTasksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_tasks);
 
-        //Alternate code
-        //get reference of Fire store
+        //get reference of Fire store and firebase auth
         db = FirebaseFirestore.getInstance();
 
+        auth = FirebaseAuth.getInstance();
 
         //Defines the completeSoundMP
         completeSoundMP = MediaPlayer.create(this, R.raw.sus_sound);
@@ -180,6 +183,14 @@ public class DisplayTasksActivity extends AppCompatActivity {
 
     }
 
+    /**This function logs the user out and redirects them to the login screen
+     */
+     public void logOut(View v){
+         FirebaseAuth.getInstance().signOut();
+         finish();
+         Intent intent = new Intent(DisplayTasksActivity.this, MainActivity.class);
+         startActivity(intent);
+     }
 
     /**This function puts the data from the firestore and places it on the DisplayTasksActivity.
      *

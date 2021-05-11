@@ -97,7 +97,7 @@
         app:menu="@menu/bottom_navigation" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/logOutButton"
         android:layout_width="104dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -106,5 +106,6 @@
         android:layout_marginEnd="10dp"
         android:text="Log Out"
         android:textSize="12sp"
+        android:onClick="logOut"
         app:backgroundTint="@color/purple" />
 </RelativeLayout>
