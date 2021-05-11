@@ -43,26 +43,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Get Firebase Instance
         auth = FirebaseAuth.getInstance();
-<<<<<<< Updated upstream
-=======
-
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-        bottomNav.setOnNavigationItemSelectedListener(navListener);
-
-        TextView textView = findViewById(R.id.textView4);
-        Button button = findViewById(R.id.button3);
-        String date =  getIntent().getStringExtra("date");
-        if(date != null)
-            textView.setText(date);
-        button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(MainActivity.this,CalendarActivity.class);
-                startActivity(intent);
-            }
-        });
-
->>>>>>> Stashed changes
     }
 
 
