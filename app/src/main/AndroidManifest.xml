@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FInalAndroidAppProject">
+        <activity android:name=".FirebaseTaskActivity"></activity>
+        <activity android:name=".DisplayTaskDetailsActivity" />
 
         <activity android:name=".FirebaseTaskActivity"></activity>
         <activity android:name=".DisplayTaskDetailsActivity" />
@@ -17,12 +19,11 @@
 
         <activity android:name=".WelcomeActivity" />
         <activity android:name=".TaskParcelable" />
-        <activity android:name=".Task" />
         <activity android:name=".DisplayTasksActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".AddTasksActivity" />
         <activity android:name=".MainActivity">
-
+            android:theme="@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
