@@ -1,11 +1,14 @@
 package com.example.finalandroidappproject;
 <<<<<<< Updated upstream
 
+<<<<<<< HEAD
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> main
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -14,16 +17,13 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import android.app.Activity;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
-//import android.support.v7.app.AlertDialog;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,13 +33,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+//import android.support.v7.app.AlertDialog;
 
 
 //Referenced this to find the auth
@@ -57,9 +51,16 @@ public class MainActivity extends AppCompatActivity {
 
         //Get Firebase Instance
         auth = FirebaseAuth.getInstance();
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         //bottomNav.setOnNavigationItemSelectedListener(navListener);
+=======
+        /*
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+
+>>>>>>> main
         TextView textView = findViewById(R.id.textView4);
         Button button = findViewById(R.id.button3);
         String date =  getIntent().getStringExtra("date");
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,CalendarActivity.class);
                 startActivity(intent);
             }
+<<<<<<< HEAD
         });
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
@@ -86,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this,CalendarActivity.class);
         startActivity(intent);
         }
+=======
+>>>>>>> main
         });*/
 
     }
@@ -95,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
      * video: youtube.com/watch?v=tPV8xA7m-iw
      * website: https://codinginflow.com/tutorials/android/bottomnavigationview
      */
-    /*private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -104,16 +108,21 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_home:
                             selectedFragment = new HomeFragment();
                             break;
+<<<<<<< HEAD
 
                         case R.id.nav_calendar:
                             selectedFragment = new CalendarFragment();
+=======
+                        case R.id.nav_calendar:
+                            selectedFragment = new HomeFragment();
+>>>>>>> main
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             selectedFragment).commit();
                     return true;
                 }
-            };*/
+            };
 
             };
     /** This function sends user to signUp activity

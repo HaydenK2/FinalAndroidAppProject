@@ -11,8 +11,6 @@ public class TaskParcelable implements Parcelable {
     private String taskName;
     private String key;
 
-
-
     /**
      * This method is required for Parceable interface.  As of now, this method is in the default state
      * and doesn't really do anything.

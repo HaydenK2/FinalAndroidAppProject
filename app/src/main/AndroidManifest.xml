@@ -9,17 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FInalAndroidAppProject">
-<<<<<<< Updated upstream
         <activity android:name=".FirebaseTaskActivity"></activity>
         <activity android:name=".DisplayTaskDetailsActivity" />
-=======
 
         <activity android:name=".FirebaseTaskActivity"></activity>
         <activity android:name=".DisplayTaskDetailsActivity" />
 
         <activity android:name=".CalendarActivity"></activity>
 
->>>>>>> Stashed changes
         <activity android:name=".WelcomeActivity" />
         <activity android:name=".TaskParcelable" />
         <activity android:name=".DisplayTasksActivity" />

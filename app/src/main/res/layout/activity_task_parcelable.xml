@@ -8,13 +8,14 @@
 
     <TextView
         android:id="@+id/taskName"
-        android:layout_width="154dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="237dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="36dp"
         android:text="TextView"
         android:textColor="@color/white"
         android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

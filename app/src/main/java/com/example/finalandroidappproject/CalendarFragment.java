@@ -9,15 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-/**
- * Referenced from this video and website
- * video: youtube.com/watch?v=tPV8xA7m-iw
- * website: https://codinginflow.com/tutorials/android/bottomnavigationview
- */
-public class HomeFragment extends Fragment {
+public class CalendarFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_display_tasks, container, false);
+        return inflater.inflate(R.layout.activity_calendar, container, false);
     }
 }

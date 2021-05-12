@@ -1,6 +1,7 @@
 package com.example.finalandroidappproject;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -88,22 +90,39 @@ public class DisplayTasksActivity extends AppCompatActivity {
     private ArrayList<TaskParcelable> myTasks;
     public static final String TAG = "DisplayTasksActivity";
 
-    //tried something; leave in for now
+    //Firestore and Firebase Auth
     private FirebaseFirestore db;
+    private FirebaseAuth auth;
+
     // Constants to use for labels in database
     public static final String NAME_TASK = "name";
 
 
     private ArrayAdapter adapter;
     private String key = "";
+
+    //Audio for when the user completes the task selected
+    //https://www.youtube.com/watch?v=C_Ka7cKwXW0
+    //Adds the *mp3 into Android file association
+    //https://developer.clevertap.com/docs/add-a-sound-file-to-your-android-app#:~:text=Right%20click%20on%20Resources%20(res,file%20in%20the%20raw%20folder.
+    MediaPlayer completeSoundMP;
+    MediaPlayer completeSoundMP2;
+    MediaPlayer completeSoundMP3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_tasks);
 
-        //Alternate code
-        //get reference of Firestore
+        //get reference of Fire store and firebase auth
         db = FirebaseFirestore.getInstance();
+
+        auth = FirebaseAuth.getInstance();
+
+        //Defines the completeSoundMP
+        completeSoundMP = MediaPlayer.create(this, R.raw.sus_sound);
+        completeSoundMP2 = MediaPlayer.create(this, R.raw.hit_sound);
+        completeSoundMP3 = MediaPlayer.create(this, R.raw.sound_electro1);
 
         // This Activity received an arraylist of all the events pulled from firebase to populate the ListView with
         Intent intent = getIntent();
@@ -117,6 +136,7 @@ public class DisplayTasksActivity extends AppCompatActivity {
         tasksListView.setAdapter(customAdapter);
 
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
         //allTasksListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -138,9 +158,42 @@ public class DisplayTasksActivity extends AppCompatActivity {
                 intent.putExtra("taskParc", taskO);
                 startActivity(intent);*/
 <<<<<<< Updated upstream
-            }
-        });
+=======
+        tasksListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+
+                // Create a setOnItemClickListener for the listView to find out which element they clicked on
+                tasksListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View v, int i, long l) {
+                        TaskParcelable taskO = myTasks.get(i);
+
+                        Log.i(TAG, taskO.getKey());
+                        key = taskO.getKey();
+                        toastMessage("Selected: " + taskO.getTaskName());
+
+                        /*start an intent to load the page to edit this element that has been clicked on
+                        Not going to use maybe?
+                        Intent intent = new Intent(DisplayTasksActivity.this, DisplayTaskDetailsActivity.class);
+                        intent.putExtra("taskParc", taskO);
+                        startActivity(intent);*/
+                    }
+                });
+
+>>>>>>> main
+            }
+
+            /**This function removes the task that's selected from the firebase firestore
+             *
+             * @param v
+             */
+            public void removeTask(View v, int i){
+                db.collection("TaskList").document(myTasks.get(i).getKey()).delete();
+            }
+
+       });
     }
 =======
             //}
@@ -161,6 +214,8 @@ public class DisplayTasksActivity extends AppCompatActivity {
     //}
 >>>>>>> Stashed changes
 
+
+
     /**This function sends the user to the activity where you can add tasks
      *
      * @param V
@@ -177,11 +232,10 @@ public class DisplayTasksActivity extends AppCompatActivity {
     }
 
 
-    /**This function is supposed to delete the selected task, but Idk if this will work.
+    /**This function is supposed to delete the selected task using the key of the task selected
      *
      */
     public void removeTask(View v){
-        //Get task obj
 
         if(key.equals("")){
             toastMessage("Select first");
@@ -195,8 +249,59 @@ public class DisplayTasksActivity extends AppCompatActivity {
     }
 <<<<<<< Updated upstream
 
+<<<<<<< HEAD
 =======
 >>>>>>> Stashed changes
+=======
+    /**This function deletes the selected task using the key of the task selected and also plays a sound to congratulate user
+     *
+     * @param v
+     */
+    public void completeTask(View v){
+        if(key.equals("")){
+            toastMessage("Select first");
+        }
+        else{
+            db.collection("TaskList").document(key).delete();
+            toastMessage("Task Completed!");
+
+            completeSoundMP3.start();
+
+            key ="";
+
+            showData();
+        }
+    }
+
+    /**This function resets the task that is selected
+     *
+     * @param v
+     */
+    public void resetKey(View v){
+        if(key.equals("")){
+
+        }
+
+        else{
+            toastMessage("Task Deselected");
+            key = "";
+        }
+
+    }
+
+    /**This function logs the user out and redirects them to the login screen
+     */
+     public void logOut(View v){
+         FirebaseAuth.getInstance().signOut();
+         finish();
+         Intent intent = new Intent(DisplayTasksActivity.this, MainActivity.class);
+         startActivity(intent);
+     }
+
+    /**This function puts the data from the firestore and places it on the DisplayTasksActivity.
+     *
+     */
+>>>>>>> main
     private void showData() {
         ArrayList<TaskParcelable> myTasks = new ArrayList<TaskParcelable>();
         db.collection("TaskList").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -266,12 +371,19 @@ public class DisplayTasksActivity extends AppCompatActivity {
             TextView taskNameTV = (TextView) view.findViewById(R.id.taskName);
 
             // Here I am getting the specific element in the database we are currently displaying
+
             TaskParcelable t = myTasks.get(i);
 
             // Set the correct image, event name, and event date for the Event object we are
             // displaying in the list
             taskNameTV.setText(t.getTaskName());
 
+
+            TaskParcelable e = myTasks.get(i);
+
+            // Set the correct image, event name, and event date for the Event object we are
+            // displaying in the list
+            taskNameTV.setText(e.getTaskName());
 
             // return this view element with the correct data inserted
             return view;

@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+<<<<<<< HEAD
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     tools:context=".CalendarActivity">
@@ -14,11 +15,26 @@
         />
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
+=======
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CalendarActivity">
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        app:backgroundTint="@color/purple"
+>>>>>>> main
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="1dp"
         app:menu="@menu/bottom_navigation" />
+<<<<<<< HEAD
 =======
         <CalendarView
             android:id="@+id/calendarView"
@@ -26,4 +42,6 @@
             android:layout_height="wrap_content"
             />
 >>>>>>> Stashed changes
+=======
+>>>>>>> main
 </RelativeLayout>
