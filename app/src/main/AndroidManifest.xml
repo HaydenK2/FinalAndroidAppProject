@@ -9,14 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FInalAndroidAppProject">
-        <activity android:name=".FirebaseTaskActivity"></activity>
+        <activity android:name=".NavActivity"></activity>
+        <activity android:name=".FirebaseTaskActivity" />
         <activity android:name=".DisplayTaskDetailsActivity" />
-
-        <activity android:name=".FirebaseTaskActivity"></activity>
+        <activity android:name=".FirebaseTaskActivity" />
         <activity android:name=".DisplayTaskDetailsActivity" />
-
-        <activity android:name=".CalendarActivity"></activity>
-
+        <activity android:name=".CalendarActivity" />
         <activity android:name=".WelcomeActivity" />
         <activity android:name=".TaskParcelable" />
         <activity android:name=".DisplayTasksActivity" />

@@ -5,21 +5,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -65,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
      * video: youtube.com/watch?v=tPV8xA7m-iw
      * website: https://codinginflow.com/tutorials/android/bottomnavigationview
      */
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+    /**private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -82,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment).commit();
                     return true;
                 }
-            };
+            };*/
 
     /** This function sends user to signUp activity
      * reference: https://learntodroid.com/how-to-switch-between-activities-in-android/

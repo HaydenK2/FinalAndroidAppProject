@@ -1,13 +1,13 @@
 package com.example.finalandroidappproject;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -53,7 +53,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 // Start new activity and send it the ArrayList of Event objects
                 //This part sends the array list we just made to the DisplayEventsActivity
                 //myTasks.add(t);
-                Intent intent = new Intent(WelcomeActivity.this, DisplayTasksActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this, NavActivity.class);
                 intent.putExtra("tasks", myTasks);
                 startActivity(intent);
             }
