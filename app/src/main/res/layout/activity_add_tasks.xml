@@ -25,7 +25,7 @@
         android:id="@+id/addTaskText"
         android:layout_width="260dp"
         android:layout_height="53dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="44dp"
         android:text="Add your Task"
         android:textAlignment="center"
         android:textColor="@color/lightGray"
@@ -52,12 +52,23 @@
         android:id="@+id/editTextTaskNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="160dp"
+        android:layout_marginBottom="164dp"
         android:text="Task Name"
         android:textColor="@color/lightGray"
         app:layout_constraintBottom_toTopOf="@+id/addTaskButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTimeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="304dp"
+        android:text="Time"
+        android:textColor="@color/lightGray"
+        app:layout_constraintBottom_toTopOf="@+id/addTaskButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -66,6 +77,7 @@
         android:layout_height="43dp"
         android:layout_marginTop="60dp"
         android:ems="10"
+        android:text="Priority Number"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/addTaskButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,5 +85,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTaskNameText" />
 
-
+    <Button
+        android:id="@+id/calButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="300dp"
+        android:fontFamily="@font/roboto_bold"
+        android:onClick="calendar"
+        android:text="Calendar"
+        app:backgroundTint="@color/purple"
+        app:layout_constraintBottom_toTopOf="@+id/backButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
