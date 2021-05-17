@@ -53,7 +53,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 // Start new activity and send it the ArrayList of Event objects
                 //This part sends the array list we just made to the DisplayEventsActivity
                 //myTasks.add(t);
-                Intent intent = new Intent(WelcomeActivity.this, NavActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this, DisplayTasksActivity.class);
                 intent.putExtra("tasks", myTasks);
                 startActivity(intent);
             }
