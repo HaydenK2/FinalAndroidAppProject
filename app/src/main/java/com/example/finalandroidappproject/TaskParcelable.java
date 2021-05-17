@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 public class TaskParcelable implements Parcelable {
     private String taskName;
-    private String taskDate;
     private String key;
 
     /**
@@ -46,30 +45,25 @@ public class TaskParcelable implements Parcelable {
      */
     public TaskParcelable(Parcel parcel){
         taskName = parcel.readString();
-        taskDate = parcel.readString();
         key = parcel.readString();
     }
 
     /**Constructor
      *
-     * @param taskName name of the task
-     * @param taskDate the time of the task
+     * @param taskName
      */
-    public TaskParcelable(String taskName, String taskDate){
+    public TaskParcelable(String taskName){
         this.taskName = taskName;
-        this.taskDate = taskDate;
         this.key = "no key yet";
     }
 
     /**Constructor
      *
-     * @param taskName name of the task
-     * @param taskDate the time of the task
-     * @param key id of the task
+     * @param taskName
+     * @param key
      */
-    public TaskParcelable(String taskName, String taskDate, String key){
+    public TaskParcelable(String taskName, String key){
         this.taskName = taskName;
-        this.taskDate = taskDate;
         this.key = key;
     }
 
@@ -83,7 +77,6 @@ public class TaskParcelable implements Parcelable {
      */
     public void writeToParcel(Parcel dest, int flags){
         dest.writeString(taskName);
-        dest.writeString(taskDate);
         dest.writeString(key);
     }
 
@@ -109,8 +102,5 @@ public class TaskParcelable implements Parcelable {
         return taskName;
     }
 
-    public String getTaskDate(){
-        return taskDate;
-    }
 
 }

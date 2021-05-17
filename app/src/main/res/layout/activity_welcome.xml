@@ -27,7 +27,7 @@
         android:layout_height="47dp"
         android:layout_marginTop="172dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="Welcome!"
+        android:text="Welcome"
         android:textColor="@color/lightGray"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
