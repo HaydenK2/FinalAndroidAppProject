@@ -261,7 +261,7 @@ public class DisplayTasksActivity extends AppCompatActivity {
             // need to say view.findViewById because you have to reference the element that
             // was gotten from the LayoutInflater above
             TextView taskNameTV = (TextView) view.findViewById(R.id.taskName);
-            TextView taskDateTV = (TextView) view.findViewById(R.id.taskDate);
+
             // Here I am getting the specific element in the database we are currently displaying
 
             TaskParcelable t = myTasks.get(i);
@@ -269,7 +269,13 @@ public class DisplayTasksActivity extends AppCompatActivity {
             // Set the correct image, event name, and event date for the Event object we are
             // displaying in the list
             taskNameTV.setText(t.getTaskName());
-            taskDateTV.setText(t.getTaskDate());
+
+
+            TaskParcelable e = myTasks.get(i);
+
+            // Set the correct image, event name, and event date for the Event object we are
+            // displaying in the list
+            taskNameTV.setText(e.getTaskName());
 
             // return this view element with the correct data inserted
             return view;
