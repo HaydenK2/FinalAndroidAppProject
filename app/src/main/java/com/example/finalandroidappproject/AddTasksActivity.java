@@ -34,7 +34,7 @@ public class AddTasksActivity extends AppCompatActivity {
     // Constants to use for labels in database
     public static final String NAME_TASK = "name";
     public static final String PRIORITY = "0";
-    public static final String DATE = "mm/dd/yy";
+    public static final String DATE = "mm/dd/yyyy";
     private FirebaseFirestore db;
 
     @Override
@@ -86,7 +86,7 @@ public class AddTasksActivity extends AppCompatActivity {
 
         //If either text boxes for task name or time are blank
         if(taskName.equals("") || taskTime.equals("")){
-            toastMessage("Please enter a name and/or time");
+            toastMessage("Please enter a name and/or date");
         }
 
         else{
@@ -94,6 +94,8 @@ public class AddTasksActivity extends AppCompatActivity {
             Map<String, Object> taskToAdd = new HashMap<String, Object>();
             taskToAdd.put(NAME_TASK, taskName);
             taskToAdd.put(DATE, taskTime);
+
+            Log.i(TAG, taskToAdd.toString());
 
             db.collection("TaskList").add(taskToAdd)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
