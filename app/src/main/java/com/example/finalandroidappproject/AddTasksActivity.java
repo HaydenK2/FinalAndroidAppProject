@@ -1,16 +1,15 @@
 package com.example.finalandroidappproject;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -28,8 +27,7 @@ import java.util.Map;
 public class AddTasksActivity extends AppCompatActivity {
 
     private static final String TAG = "taskadd";
-    private TextView theDate;
-    private Button btnGoCalendar;
+
     // Constants to use for labels in database
     public static final String NAME_TASK = "name";
     public static final String PRIORITY = "0";
@@ -37,26 +35,13 @@ public class AddTasksActivity extends AppCompatActivity {
     private FirebaseFirestore db;
 
     @Override
-    /** Connecting CalendarView to AddTasksActivity
-     * Video: https://www.youtube.com/watch?v=hHjFIG0TtA0
-     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_tasks);
-        theDate = (TextView) findViewById(R.id.editTimeText);
-        btnGoCalendar = (Button) findViewById(R.id.calButton);
+
         db = FirebaseFirestore.getInstance();
-        Intent incomingIntent = getIntent();
-        String date = incomingIntent.getStringExtra("date");
-        theDate.setText(date);
-        btnGoCalendar.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AddTasksActivity.this, CalendarActivity.class);
-                startActivity(intent);
-            }
-        });
     }
+
     /** This function adds a task to the list of task on the TaskActivity Page
     /   reference: https://www.youtube.com/watch?v=y2op1D0W8oE
      */
