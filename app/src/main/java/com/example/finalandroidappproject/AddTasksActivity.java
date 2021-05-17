@@ -140,7 +140,7 @@ public class AddTasksActivity extends AppCompatActivity {
 
                 // Start new activity and send it the ArrayList of TaskParcelable objects
                 //This part sends the array list we just made to the DisplayTasksActivity
-                Intent intent = new Intent(AddTasksActivity.this, DisplayTasksActivity.class);
+                Intent intent = new Intent(AddTasksActivity.this, NavActivity.class);
                 intent.putExtra("tasks", myTasks);
                 startActivity(intent);
             }

@@ -27,11 +27,11 @@ import java.util.ArrayList;
 
 public class DisplayTasksActivity extends AppCompatActivity {
 
-    private ArrayList<TaskParcelable> myTasks;
+    private static ArrayList<TaskParcelable> myTasks;
     public static final String TAG = "DisplayTasksActivity";
 
     //Firestore and Firebase Auth
-    private FirebaseFirestore db;
+    public FirebaseFirestore db;
     private FirebaseAuth auth;
 
     // Constants to use for labels in database
@@ -126,7 +126,7 @@ public class DisplayTasksActivity extends AppCompatActivity {
     /**This function just makes writing toast messages easier
      *
      */
-    private void toastMessage(String message){
+    public void toastMessage(String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
@@ -212,13 +212,16 @@ public class DisplayTasksActivity extends AppCompatActivity {
 
                 // Start new activity and send it the ArrayList of TaskParcelable objects
                 //This part sends the array list we just made to the DisplayTasksActivity
-                Intent intent = new Intent(DisplayTasksActivity.this, DisplayTasksActivity.class);
+                Intent intent = new Intent(DisplayTasksActivity.this, NavActivity.class);
                 intent.putExtra("tasks", myTasks);
                 startActivity(intent);
             }
         });
     }
 
+    public static ArrayList<TaskParcelable> getMyTasks() {
+        return myTasks;
+    }
 
     class CustomAdapter extends BaseAdapter {
 
