@@ -28,7 +28,6 @@
         android:layout_width="407dp"
         android:layout_height="434dp"
         android:layout_below="@+id/taskTitleText"
-        android:textColor="@color/white"
         >
 
 
