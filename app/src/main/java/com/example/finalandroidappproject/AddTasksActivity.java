@@ -69,8 +69,6 @@ public class AddTasksActivity extends AppCompatActivity {
 
         });
     }
-
-    //sssss
     /** This function adds a task to the list of task on the TaskActivity Page
     /   reference: https://www.youtube.com/watch?v=y2op1D0W8oE
      */
