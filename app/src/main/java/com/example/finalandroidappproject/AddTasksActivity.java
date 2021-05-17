@@ -122,8 +122,7 @@ public class AddTasksActivity extends AppCompatActivity {
      */
     private void showData() {
         ArrayList<TaskParcelable> myTasks = new ArrayList<TaskParcelable>();
-
-        db.collection("TaskList").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("TaskList").orderBy(NAME_TASK).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
@@ -153,7 +152,7 @@ public class AddTasksActivity extends AppCompatActivity {
      * @param v
      */
     public void goBack(View v){
-        finish();
+        showData();
     }
 
     /**This functions just makes writing toast messages easier
