@@ -135,7 +135,7 @@ public class AddTasksActivity extends AppCompatActivity {
      * @param v
      */
     public void goBack(View v){
-        finish();
+        showData();
     }
 
     /**This functions just makes writing toast messages easier
