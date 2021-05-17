@@ -20,7 +20,7 @@ public class CalendarActivity extends AppCompatActivity {
          * Time Picker
          * link: https://www.tutorialspoint.com/android/android_timepicker_control.htm#:~:text=Android%20Time%20Picker%20allows%20you,this%20functionality%20through%20TimePicker%20class
          */
-        timePicker1 = (TimePicker) findViewById(R.id.timePicker1);
+        //timePicker1 = (TimePicker) findViewById(R.id.timePicker1);
         calView = findViewById(R.id.calendarView);
         calView.setOnDateChangeListener(new CalendarView.OnDateChangeListener(){
             @Override
