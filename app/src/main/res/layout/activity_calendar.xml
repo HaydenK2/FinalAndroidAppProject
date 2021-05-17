@@ -4,12 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".CalendarActivity">
+
+    <TextView
+        android:id="@+id/addTaskText"
+        android:layout_width="260dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="100dp"
+        android:text="Select a Date"
+        android:textAlignment="center"
+        android:textColor="@color/lightGray"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"/>
 
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:background="@drawable/cal"
         />
 
     <!--<TimePicker
