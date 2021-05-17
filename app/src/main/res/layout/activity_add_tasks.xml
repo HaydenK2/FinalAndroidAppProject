@@ -70,20 +70,7 @@
         app:layout_constraintBottom_toTopOf="@+id/addTaskButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextPriorityText"
-        android:layout_width="70dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:text="Priority Number"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/addTaskButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTaskNameText" />
+    
 
     <Button
         android:id="@+id/calButton"
