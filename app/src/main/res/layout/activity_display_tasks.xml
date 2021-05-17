@@ -87,14 +87,13 @@
             android:textSize="12sp"
             app:backgroundTint="@color/purple" />
     </LinearLayout>
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
+        app:backgroundTint="@color/purple"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="-1dp"
-        app:backgroundTint="@color/purple"
+        android:layout_marginBottom="1dp"
         app:menu="@menu/bottom_navigation" />
 
     <Button
